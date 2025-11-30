@@ -1,4 +1,3 @@
-// Este script es la versión limpia del proyecto frontend, sin referencias a Flask
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -65,6 +64,10 @@ function drawFractal() {
         return;
     }
 
+    // Ajustar tamaño real del canvas
+    canvas.width = size;
+    canvas.height = size;
+
     // Limpiar canvas
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -95,6 +98,9 @@ function resetForm() {
     sizeInput.value = 600;
     updateOrderValue(5);
 
+    canvas.width = parseInt(sizeInput.value);
+    canvas.height = parseInt(sizeInput.value);
+
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.width,canvas.height);
     statusMessage.style.display = 'none';
@@ -121,5 +127,7 @@ btnDownload.addEventListener('click', downloadPNG);
 
 /* INICIALIZACIÓN */
 updateTriangles(5);
+canvas.width = parseInt(sizeInput.value);
+canvas.height = parseInt(sizeInput.value);
 ctx.fillStyle = 'black';
 ctx.fillRect(0,0,canvas.width,canvas.height);
