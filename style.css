@@ -5,6 +5,74 @@ body {
     margin: 0;
     padding: 0;
 }
+.main-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 40px;
+    padding: 30px;
+}
+.control-panel,
+.canvas-container,
+.about {
+    background: rgba(45, 45, 68, 0.9);
+    border: 2px solid #00d9ff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+}
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+    width: 100%;
+}
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+.btn-draw {
+    background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
+    color: #1e1e2e;
+}
+.btn-reset {
+    background: rgba(100, 100, 120, 0.8);
+    color: #fff;
+}
+.btn-download {
+    background: rgba(150, 100, 200, 0.8);
+    color: #fff;
+}
+input[type="number"],
+input[type="range"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #00d9ff;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+canvas {
+    background: black;
+    border-radius: 15px;
+    max-width: 100%;
+    height: auto;
+}
+.status-message {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    display: none;
+}
+
+}
 
 .main-container {
     display: flex;
