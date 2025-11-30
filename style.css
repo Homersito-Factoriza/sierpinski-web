@@ -18,10 +18,13 @@ body {
 /* CONTENEDOR PRINCIPAL */
 .main-container {
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 400px 1fr; /* panel más ancho */
     gap: 40px;
     padding: 30px;
+    max-width: 1400px; /* para no exceder la pantalla */
+    width: 90%;        /* ocupa el 90% del ancho de la ventana */
 }
+
 
 /* PANEL DE CONTROL */
 .control-panel,
