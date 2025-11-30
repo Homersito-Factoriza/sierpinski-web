@@ -36,10 +36,14 @@ body {
 
 /* ABOUT: ocupa toda la fila */
 .about {
-    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    grid-column: 1 / -1;
     margin-top: 30px;
     padding: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 /* TÍTULOS */
 h1 {
