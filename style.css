@@ -34,6 +34,13 @@ body {
     box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
 }
 
+/* ABOUT: ocupa toda la fila */
+.about {
+    grid-column: 1 / -1; /* Ocupa todas las columnas */
+    margin-top: 30px;
+    padding: 20px;
+}
+
 /* TÍTULOS */
 h1 {
     text-align: center;
@@ -155,3 +162,4 @@ canvas {
         grid-template-columns: 1fr;
     }
 }
+
