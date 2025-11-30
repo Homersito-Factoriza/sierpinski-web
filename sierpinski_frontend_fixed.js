@@ -18,7 +18,8 @@ function updateOrderValue(value) {
 }
 
 function updateTriangles(order) {
-    const triangles = Math.pow(3, parseInt(order));
+    const n = parseInt(order);
+    const triangles = Math.pow(3, n);
     trianglesEl.textContent = triangles.toLocaleString();
 }
 
@@ -32,7 +33,7 @@ function drawTriangle(ctx, p1, p2, p3, color = 'white') {
     ctx.fill();
 }
 
-/* GENERAR TRIÁNGULOS SIERPINSKI */
+/* Sierpinski */
 function midpoint(a, b) {
     return [(a[0]+b[0])/2, (a[1]+b[1])/2];
 }
@@ -54,41 +55,31 @@ function sierpinskiPoints(order, p1, p2, p3, triangles=[]) {
     return triangles;
 }
 
-/* FUNCIONES PRINCIPALES */
+/* MAIN FUNCTIONS */
 function drawFractal() {
     const order = parseInt(orderInput.value);
     const size = parseInt(sizeInput.value);
 
-    if (!order || !size) {
+    if (isNaN(order) || isNaN(size) || size <= 0) {
         showStatus('Por favor, completa todos los campos', 'error');
         return;
     }
 
-    // Ajustar tamaño real del canvas
     canvas.width = size;
     canvas.height = size;
 
-    // Limpiar canvas
+    // Fondo negro
     ctx.fillStyle = 'black';
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
-    // Generar triángulos
-    const p1 = [-size/2,-size/2];
-    const p2 = [0,size/2];
-    const p3 = [size/2,-size/2];
+    // Triángulo inicial (coordenadas relativas al canvas)
+    const p1 = [0, canvas.height];
+    const p2 = [canvas.width/2, 0];
+    const p3 = [canvas.width, canvas.height];
 
-    const triangles = sierpinskiPoints(order,p1,p2,p3);
+    const triangles = sierpinskiPoints(order, p1, p2, p3);
 
-    const offsetX = canvas.width/2;
-    const offsetY = canvas.height/2;
-    const scale = Math.min(canvas.width, canvas.height)/size*0.8;
-
-    triangles.forEach(tri => {
-        const p1t = [tri[0][0]*scale+offsetX, -tri[0][1]*scale+offsetY];
-        const p2t = [tri[1][0]*scale+offsetX, -tri[1][1]*scale+offsetY];
-        const p3t = [tri[2][0]*scale+offsetX, -tri[2][1]*scale+offsetY];
-        drawTriangle(ctx,p1t,p2t,p3t,'white');
-    });
+    triangles.forEach(tri => drawTriangle(ctx, tri[0], tri[1], tri[2], 'white'));
 
     showStatus(`✓ Fractal dibujado (${triangles.length} triángulos)`, 'success');
 }
@@ -97,12 +88,7 @@ function resetForm() {
     orderInput.value = 5;
     sizeInput.value = 600;
     updateOrderValue(5);
-
-    canvas.width = parseInt(sizeInput.value);
-    canvas.height = parseInt(sizeInput.value);
-
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
+    drawFractal();
     statusMessage.style.display = 'none';
 }
 
@@ -125,9 +111,6 @@ btnDraw.addEventListener('click', drawFractal);
 btnReset.addEventListener('click', resetForm);
 btnDownload.addEventListener('click', downloadPNG);
 
-/* INICIALIZACIÓN */
+/* INIT */
 updateTriangles(5);
-canvas.width = parseInt(sizeInput.value);
-canvas.height = parseInt(sizeInput.value);
-ctx.fillStyle = 'black';
-ctx.fillRect(0,0,canvas.width,canvas.height);
+drawFractal();
