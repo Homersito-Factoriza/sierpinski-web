@@ -5,12 +5,16 @@ body {
     margin: 0;
     padding: 0;
 }
+
 .main-container {
-    display: grid;
-    grid-template-columns: 350px 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
     gap: 40px;
     padding: 30px;
+    flex-wrap: wrap;
 }
+
 .control-panel,
 .canvas-container,
 .about {
@@ -20,6 +24,7 @@ body {
     padding: 30px;
     box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
 }
+
 .button-group {
     display: flex;
     flex-direction: column;
@@ -27,6 +32,7 @@ body {
     margin-top: 25px;
     width: 100%;
 }
+
 button {
     padding: 12px 20px;
     border: none;
@@ -36,18 +42,41 @@ button {
     text-transform: uppercase;
     transition: all 0.3s ease;
 }
+
 .btn-draw {
     background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
     color: #1e1e2e;
 }
+
+.btn-draw:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 217, 255, 0.4);
+}
+
 .btn-reset {
     background: rgba(100, 100, 120, 0.8);
     color: #fff;
+    border: 2px solid #606080;
 }
+
+.btn-reset:hover {
+    background: rgba(120, 120, 140, 0.9);
+    border-color: #00d9ff;
+}
+
 .btn-download {
     background: rgba(150, 100, 200, 0.8);
     color: #fff;
+    border: 2px solid #9060c8;
 }
+
+.btn-download:hover {
+    background: rgba(170, 120, 220, 0.9);
+    border-color: #00d9ff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(150, 100, 200, 0.4);
+}
+
 input[type="number"],
 input[type="range"] {
     width: 100%;
@@ -57,12 +86,14 @@ input[type="range"] {
     background: rgba(0, 0, 0, 0.3);
     color: #fff;
 }
+
 canvas {
     background: black;
     border-radius: 15px;
     max-width: 100%;
     height: auto;
 }
+
 .status-message {
     margin-top: 15px;
     padding: 12px;
@@ -70,4 +101,34 @@ canvas {
     text-align: center;
     font-weight: 600;
     display: none;
+}
+
+.about {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 18px;
+    border: 1px solid rgba(0,217,255,0.08);
+    border-radius: 10px;
+    background: rgba(30,30,46,0.6);
+    color: #e6eef8;
+}
+
+.about h2 {
+    color: #00d9ff;
+    margin-bottom: 8px;
+}
+
+.about p {
+    line-height: 1.5;
+    color: #d8e9f2;
+}
+
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .canvas-container {
+        min-height: 400px;
+    }
 }
