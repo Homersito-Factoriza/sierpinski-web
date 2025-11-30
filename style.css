@@ -1,3 +1,4 @@
+/* BODY */
 body {
     background: black;
     font-family: sans-serif;
@@ -5,12 +6,16 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* CONTENEDOR PRINCIPAL */
 .main-container {
     display: grid;
     grid-template-columns: 350px 1fr;
     gap: 40px;
     padding: 30px;
 }
+
+/* CONTROL PANEL Y CANVAS */
 .control-panel,
 .canvas-container,
 .about {
@@ -20,6 +25,8 @@ body {
     padding: 30px;
     box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
 }
+
+/* BOTONES */
 .button-group {
     display: flex;
     flex-direction: column;
@@ -27,6 +34,7 @@ body {
     margin-top: 25px;
     width: 100%;
 }
+
 button {
     padding: 12px 20px;
     border: none;
@@ -36,18 +44,23 @@ button {
     text-transform: uppercase;
     transition: all 0.3s ease;
 }
+
 .btn-draw {
     background: linear-gradient(135deg, #00d9ff 0%, #0099cc 100%);
     color: #1e1e2e;
 }
+
 .btn-reset {
     background: rgba(100, 100, 120, 0.8);
     color: #fff;
 }
+
 .btn-download {
     background: rgba(150, 100, 200, 0.8);
     color: #fff;
 }
+
+/* FORM ELEMENTS */
 input[type="number"],
 input[type="range"] {
     width: 100%;
@@ -57,12 +70,16 @@ input[type="range"] {
     background: rgba(0, 0, 0, 0.3);
     color: #fff;
 }
+
+/* CANVAS */
 canvas {
     background: black;
     border-radius: 15px;
     max-width: 100%;
     height: auto;
 }
+
+/* STATUS MESSAGE */
 .status-message {
     margin-top: 15px;
     padding: 12px;
@@ -71,3 +88,4 @@ canvas {
     font-weight: 600;
     display: none;
 }
+
