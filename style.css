@@ -5,6 +5,11 @@ body {
     color: #e6eef8;
     margin: 0;
     padding: 0;
+
+    display: flex;
+    justify-content: center; /* centra horizontalmente todo */
+    align-items: flex-start; /* vertical: cambia a center si quieres centrar vertical */
+    min-height: 100vh;
 }
 
 /* CONTENEDOR PRINCIPAL */
@@ -13,6 +18,8 @@ body {
     grid-template-columns: 350px 1fr;
     gap: 40px;
     padding: 30px;
+    max-width: 1200px;
+    width: 100%;
 }
 
 /* CONTROL PANEL Y CANVAS */
@@ -75,8 +82,8 @@ input[type="range"] {
 canvas {
     background: black;
     border-radius: 15px;
-    max-width: 100%;
-    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 /* STATUS MESSAGE */
@@ -88,4 +95,3 @@ canvas {
     font-weight: 600;
     display: none;
 }
-
