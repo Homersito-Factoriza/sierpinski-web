@@ -8,44 +8,68 @@
 </head>
 <body>
     <div class="main-container">
+        <!-- Panel de Control -->
         <div class="control-panel">
             <h1>🔺 Sierpinski</h1>
             <p class="subtitle">Generador de fractales</p>
+
             <form id="drawForm">
                 <div class="form-group">
                     <label for="order">
                         Orden (Profundidad)
                         <span class="range-value" id="orderValue">5</span>
                     </label>
-                    <input type="range" id="order" name="order" min="0" max="15" value="5">
+                    <input 
+                        type="range" 
+                        id="order" 
+                        name="order" 
+                        min="0" 
+                        max="15" 
+                        value="5"
+                    >
                     <p class="info-text">Mayor orden = fractal más complejo</p>
                 </div>
+
                 <div class="form-group">
                     <label for="size">Tamaño base (píxeles)</label>
-                    <input type="number" id="size" name="size" value="600" min="200" max="1200">
+                    <input 
+                        type="number" 
+                        id="size" 
+                        name="size" 
+                        value="600"
+                        min="200"
+                        max="1200"
+                    >
                     <p class="info-text">Tamaño del triángulo</p>
                 </div>
+
                 <div class="complexity-info">
                     Triángulos: <span class="complexity-value" id="triangles">243</span>
                 </div>
+
                 <div class="button-group">
                     <button type="button" class="btn-draw">▶ Dibujar</button>
                     <button type="button" class="btn-reset">⟲ Reset</button>
                     <button type="button" class="btn-download">⬇ PNG</button>
                 </div>
+
                 <div class="status-message" id="statusMessage"></div>
             </form>
         </div>
+
+        <!-- Canvas de Dibujo -->
         <div class="canvas-container">
             <canvas id="canvas" width="600" height="600"></canvas>
         </div>
     </div>
+
     <section class="about">
         <h2>Historia del triángulo</h2>
-        <p>El triángulo es una de las figuras geométricas más antiguas y fundamentales...</p>
-        <p>En la antigüedad clásica, el teorema de Pitágoras...</p>
-        <p>Hoy los triángulos y sus variantes fractales aparecen en campos modernos...</p>
+        <p>El triángulo es una de las figuras geométricas más antiguas y fundamentales en la historia de las matemáticas y la arquitectura. Culturas antiguas como la egipcia y la babilónica conocían propiedades básicas de los triángulos y desarrollaron técnicas prácticas (topografía, construcción).</p>
+        <p>En la antigüedad clásica, el teorema de Pitágoras y el estudio de la geometría euclidiana consolidaron al triángulo como objeto central en la matemática. Más tarde, en el siglo XX, el matemático polaco <strong>Wacław Sierpiński</strong> estudió estructuras fractales derivadas del triángulo: el llamado <em>Triángulo de Sierpiński</em>, que muestra cómo, aplicando un proceso recursivo simple, surge una figura de complejidad infinita a partir de un triángulo equilátero.</p>
+        <p>Hoy los triángulos y sus variantes fractales aparecen en campos modernos como gráficos por ordenador, teoría de señales, arte generativo y modelado de estructuras naturales. El Triángulo de Sierpiński es un ejemplo claro de cómo la iteración y la simplicidad pueden generar patrones auto-similares y ricos desde el punto de vista matemático y visual.</p>
     </section>
+
     <script src="script.js"></script>
 </body>
 </html>
