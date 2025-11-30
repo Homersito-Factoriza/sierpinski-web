@@ -7,8 +7,8 @@ body {
     padding: 0;
 
     display: flex;
-    justify-content: center; /* centra horizontalmente todo */
-    align-items: flex-start; /* vertical: cambia a center si quieres centrar vertical */
+    justify-content: center;
+    align-items: flex-start;
     min-height: 100vh;
 }
 
@@ -22,7 +22,7 @@ body {
     width: 100%;
 }
 
-/* CONTROL PANEL Y CANVAS */
+/* PANEL Y CANVAS */
 .control-panel,
 .canvas-container,
 .about {
@@ -50,6 +50,11 @@ button {
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
 
 .btn-draw {
@@ -94,4 +99,14 @@ canvas {
     text-align: center;
     font-weight: 600;
     display: none;
+}
+
+.status-message.success {
+    background-color: #00d9ff33;
+    color: #00d9ff;
+}
+
+.status-message.error {
+    background-color: #ff003333;
+    color: #ff0033;
 }
